@@ -79,13 +79,13 @@
     <div id="content-container">
         <h1>{{option_a}} vs {{option_b}}!</h1>
         <div class="option">
-            <img class="option-image" src="images/option_a.jpg" alt="{{option_a}}">
+            <img class="option-image" src="templates/dining table.jpg" alt="Dining Table}">
             <form name='form' method="POST" action="/">
                 <button type="submit" name="vote" class="option-button" value="a">{{option_a}}</button>
             </form>
         </div>
         <div class="option">
-            <img class="option-image" src="images/option_b.jpg" alt="{{option_b}}">
+            <img class="option-image" src="templates/snack table.jpg" alt="Snack Table">
             <form name='form' method="POST" action="/">
                 <button type="submit" name="vote" class="option-button" value="b">{{option_b}}</button>
             </form>

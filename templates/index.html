@@ -85,8 +85,8 @@
             (Tip: You can change your vote anytime!)
         </div>
         <div id="result">
-            <!-- Result content here -->
-        </div>
+    The current results are being calculated...
+</div>
         <div id="hostname">
             Processed by container ID {{hostname}}
         </div>
@@ -98,5 +98,36 @@
             Processed by container ID {{hostname}}
         </div>
     </div>
+    <script>
+    // JavaScript code to handle voting and result display
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize vote counts for option A and B
+        let votesA = 0;
+        let votesB = 0;
+
+        // Get the voting buttons
+        const buttonA = document.querySelector('.option-button[value="a"]');
+        const buttonB = document.querySelector('.option-button[value="b"]');
+
+        // Add event listeners to voting buttons
+        buttonA.addEventListener('click', function () {
+            // Increment vote count for option A
+            votesA++;
+            updateResult();
+        });
+
+        buttonB.addEventListener('click', function () {
+            // Increment vote count for option B
+            votesB++;
+            updateResult();
+        });
+
+        // Function to update the result display
+        function updateResult() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `Votes for ${option_a}: ${votesA} | Votes for ${option_b}: ${votesB}`;
+        }
+    });
+</script>
 </body>
 </html>

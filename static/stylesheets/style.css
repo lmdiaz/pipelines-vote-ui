@@ -1,150 +1,104 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{option_a}} vs {{option_b}}!</title>
+    <base href="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
 
-*{
-  box-sizing:border-box;
-}
-html,body{
-  margin: 0;
-  padding: 0;
-  background-color: #F7F8F9;
-  height: 100vh;
-  font-family: 'Open Sans';
-}
+        #content-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
 
-button{
-  border-radius: 0;
-  width: 100%;
-  height: 50%;
-}
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
 
-button[type="submit"] {
-  -webkit-appearance:none; -webkit-border-radius:0;
-}
+        .option {
+            margin: 20px;
+        }
 
-button i{
-  float: right;
-  padding-right: 30px;
-  margin-top: 3px;
-}
+        .option-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-button.a{
-  background-color: #e00;
-}
+        .option-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-button.b{
-  background-color: #959595;
-}
+        .option-button:hover {
+            background-color: #2980b9;
+        }
 
-#tip{
-  text-align: left;
-  color: #c0c9ce;
-  font-size: 14px;
-}
+        #tip {
+            font-size: 14px;
+            color: #888;
+        }
 
-#hostname{
-  position: absolute;
-  bottom: 100px;
-  right: 0;
-  left: 0;
-  color: #8f9ea8;
-  font-size: 24px;
-}
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #27ae60;
+        }
 
-#content-container{
-  z-index: 2;
-  position: relative;
-  margin: 0 auto;
-  display: table;
-  padding: 10px;
-  max-width: 940px;
-  height: 100%;
-}
-#content-container-center{
-  display: table-cell;
-  text-align: center;
-}
-
-#content-container-center h3{
-  color: #254356;
-}
-
-/* Add this CSS code in your <style> section or in an external CSS file */
-#content-wrapper {
-    display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center; /* Center items horizontally */
-    text-align: center; /* Center text within buttons */
-}
-
-img {
-    margin-bottom: 20px; /* Add space between image and buttons */
-}
-
-button.a, button.b {
-    /* Your button styles here */
-}
-
-#choice{
-  transition: all 300ms linear;
-  line-height: 1.3em;
-  display: inline;
-  vertical-align: middle;
-  font-size: 3em;
-}
-#choice a{
-  text-decoration:none;
-}
-#choice a:hover, #choice a:focus{
-  outline:0;
-  text-decoration:underline;
-}
-
-#choice button{
-  display: block;
-  height: 80px;
-  width: 330px;
-  border: none;
-  color: white;
-  text-transform: uppercase;
-  font-size:18px;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: left;
-  padding-left: 50px;
-}
-
-#choice button.a:hover{
-  background-color: #e00;
-}
-
-#choice button.b:hover{
-  background-color: #959595;
-}
-
-#choice button.a:focus{
-  background-color: #e00;
-}
-
-#choice button.b:focus{
-  background-color: #959595;
-}
-
-#background-stats{
-  z-index:1;
-  height:100%;
-  width:100%;
-  position:absolute;
-}
-#background-stats div{
-  transition: width 400ms ease-in-out;
-  display:inline-block;
-  margin-bottom:-4px;
-  width:50%;
-  height:100%;
-}
-
-div#result {
-  font-size: 261%;
-  margin-top: 70px;
-}
+        #hostname {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content-container">
+        <h1>{{option_a}} vs {{option_b}}!</h1>
+        <div class="option">
+            <img class="option-image" src="images/option_a.jpg" alt="{{option_a}}">
+            <form name='form' method="POST" action="/">
+                <button type="submit" name="vote" class="option-button" value="a">{{option_a}}</button>
+            </form>
+        </div>
+        <div class="option">
+            <img class="option-image" src="images/option_b.jpg" alt="{{option_b}}">
+            <form name='form' method="POST" action="/">
+                <button type="submit" name="vote" class="option-button" value="b">{{option_b}}</button>
+            </form>
+        </div>
+        <div id="tip">
+            (Tip: You can change your vote anytime!)
+        </div>
+        <div id="result">
+            <!-- Result content here -->
+        </div>
+        <div id="hostname">
+            Processed by container ID {{hostname}}
+        </div>
+    </div>
+</body>
+</html>

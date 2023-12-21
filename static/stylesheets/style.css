@@ -68,6 +68,22 @@ button.b{
   color: #254356;
 }
 
+/* Add this CSS code in your <style> section or in an external CSS file */
+#content-wrapper {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within buttons */
+}
+
+img {
+    margin-bottom: 20px; /* Add space between image and buttons */
+}
+
+button.a, button.b {
+    /* Your button styles here */
+}
+
 #choice{
   transition: all 300ms linear;
   line-height: 1.3em;

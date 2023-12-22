@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault(); // Prevent the form from submitting
         // Increment vote count for option A
         votesA++;
+        console.log(`Vote for ${option_a} counted. Total votes for ${option_a}: ${votesA}`);
         updateResult();
     });
 
@@ -124,8 +125,15 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault(); // Prevent the form from submitting
         // Increment vote count for option B
         votesB++;
+        console.log(`Vote for ${option_b} counted. Total votes for ${option_b}: ${votesB}`);
         updateResult();
     });
+
+    // Function to update the result display
+    function updateResult() {
+        resultDiv.textContent = `Votes for ${option_a}: ${votesA} | Votes for ${option_b}: ${votesB}`;
+    }
+});
 
     // Function to update the result display
     function updateResult() {

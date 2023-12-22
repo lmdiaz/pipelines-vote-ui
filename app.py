@@ -59,3 +59,12 @@ def send_js(path):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
+
+ # Render the template and pass option_a as a JavaScript variable
+    return render_template(
+        'index.html',
+        option_a=option_a,
+        option_b=option_b,
+        hostname=hostname,
+        vote=vote,
+    )

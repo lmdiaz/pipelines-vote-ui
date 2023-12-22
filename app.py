@@ -27,6 +27,15 @@ def hello():
         data = json.dumps({'voter_id': voter_id, 'vote': vote})
         requests.post(url=rest_endpoint + "/vote", data=data)
 
+     # Render the template and pass option_a as a JavaScript variable
+    return render_template(
+        'index.html',
+        option_a=option_a,
+        option_b=option_b,
+        hostname=hostname,
+        vote=vote,
+    )
+
     print("Option A:", option_a)  # Add this line for debugging
     print("Option B:", option_b)  # Add this line for debugging
 
@@ -59,12 +68,3 @@ def send_js(path):
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
-
- # Render the template and pass option_a as a JavaScript variable
-    return render_template(
-        'index.html',
-        option_a=option_a,
-        option_b=option_b,
-        hostname=hostname,
-        vote=vote,
-    )

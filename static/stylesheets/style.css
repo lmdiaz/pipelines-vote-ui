@@ -40,8 +40,8 @@ h1 {
 }
 
 .option-image {
-    width: 300px;
-    height: auto; /* Let the height adjust proportionally */
+    width: 300px; /* Set a fixed width for both images */
+    height: 200px; /* Set a fixed height for both images */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

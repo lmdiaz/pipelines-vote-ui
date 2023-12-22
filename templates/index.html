@@ -99,35 +99,40 @@
         </div>
     </div>
     <script>
-    // JavaScript code to handle voting and result display
-    document.addEventListener('DOMContentLoaded', function () {
-        // Initialize vote counts for option A and B
-        let votesA = 0;
-        let votesB = 0;
+// JavaScript code to handle voting and result display
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize vote counts for option A and B
+    let votesA = 0;
+    let votesB = 0;
 
-        // Get the voting buttons
-        const buttonA = document.querySelector('.option-button[value="a"]');
-        const buttonB = document.querySelector('.option-button[value="b"]');
+    // Get the voting buttons
+    const buttonA = document.querySelector('.option-button[value="a"]');
+    const buttonB = document.querySelector('.option-button[value="b"]');
+    
+    // Get the result element
+    const resultDiv = document.getElementById('result');
 
-        // Add event listeners to voting buttons
-        buttonA.addEventListener('click', function () {
-            // Increment vote count for option A
-            votesA++;
-            updateResult();
-        });
-
-        buttonB.addEventListener('click', function () {
-            // Increment vote count for option B
-            votesB++;
-            updateResult();
-        });
-
-        // Function to update the result display
-        function updateResult() {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `Votes for ${option_a}: ${votesA} | Votes for ${option_b}: ${votesB}`;
-        }
+    // Add event listeners to voting buttons
+    buttonA.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the form from submitting
+        // Increment vote count for option A
+        votesA++;
+        updateResult();
     });
+
+    buttonB.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the form from submitting
+        // Increment vote count for option B
+        votesB++;
+        updateResult();
+    });
+
+    // Function to update the result display
+    function updateResult() {
+        resultDiv.textContent = `Votes for ${option_a}: ${votesA} | Votes for ${option_b}: ${votesB}`;
+    }
+});
+
 </script>
 </body>
 </html>

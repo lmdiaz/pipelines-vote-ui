@@ -91,7 +91,7 @@ h1 {
             </form>
         </div>
         <div class="option">
-            <img class="option-image" src="templates/snack table.jpg" alt="Snack Table">
+            <img class="option-image" src="templates/result/snack table.jpg" alt="Snack Table">
             <form name='form' method="POST" action="/">
                 <button type="submit" name="vote" class="option-button" value="b">{{option_b}}</button>
             </form>

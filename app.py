@@ -29,8 +29,8 @@ def hello():
 
     resp = make_response(render_template(
         'index.html',
-        option_a = os.getenv('OPTION_A', u"Dining room table 🍴"),
-        option_b = os.getenv('OPTION_B', u"Snack table/TV tray 📺 "),
+        option_a = option_a,
+        option_b = option_b,
         hostname=hostname,
         vote=vote,
     ))

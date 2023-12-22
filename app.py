@@ -29,8 +29,8 @@ def hello():
 
     resp = make_response(render_template(
         'index.html',
-        option_a = option_a,
-        option_b = option_b,
+        option_a=option_a,
+        option_b=option_b,
         hostname=hostname,
         vote=vote,
     ))

@@ -125,7 +125,7 @@
         // Function to update the result display
         function updateResult() {
             const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `Votes for $os.getenv('OPTION_A', u"Dining room table 🍴"): ${votesA} | Votes for $os.getenv('OPTION_B', u"Snack table 📺"): ${votesB}`;
+            resultDiv.innerHTML = `Votes for ${option_a}: ${votesA} | Votes for ${option_b}: ${votesB}`;
         }
     });
 </script>

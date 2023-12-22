@@ -27,6 +27,9 @@ def hello():
         data = json.dumps({'voter_id': voter_id, 'vote': vote})
         requests.post(url=rest_endpoint + "/vote", data=data)
 
+    print("Option A:", option_a)  # Add this line for debugging
+    print("Option B:", option_b)  # Add this line for debugging
+
     resp = make_response(render_template(
         'index.html',
         option_a=option_a,
